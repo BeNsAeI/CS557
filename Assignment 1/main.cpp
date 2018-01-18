@@ -400,6 +400,9 @@ Display( )
 	Pattern->SetUniformVariable((char *)"uTime",(float)(Time));
 	Pattern->SetUniformVariable((char *)"uAd",(float)(0.1));
 	Pattern->SetUniformVariable((char *)"uBd",(float)(0.2));
+	Pattern->SetUniformVariable((char *)"uP",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uA",(float)(5));
+	Pattern->SetUniformVariable((char *)"uTol",(float)(0.5));
 	Pattern->SetUniformVariable((char *)"uDist",(float)(dist));
 	Pattern->SetUniformVariable((char *)"uPat",(float)(pat));
 	Pattern->SetUniformVariable((char *)"uKa",(float)0.25);
