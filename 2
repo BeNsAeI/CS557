@@ -1,0 +1,79 @@
+- Web form
+- project 1 is due 1/19
+- GLMan: Jan12.zip
+___
+
+Project 1:
+- Sharp edge smooth edge
+- use GLMan
+- Glib file:
+ - Perspective xx
+ - LookAt 0 0 2 0 0 0 0 1 0
+ - Vertex xxx.vert
+ - Fragment xxx.frag
+ - Program xxx
+ -	uVar <min cur max> // u: uniform, a: atribute, v: vertex
+ - ->	uAd
+ - ->	uBd
+ - ->	uTol
+ - Color r g b
+ - Sphere 1 50 50
+- Use stripes, dots and rings
+- post on kaltura
+___
+
+Reminders:
+- Uniform variables are global variables
+- Attribute: per-vertex in variables
+- out / in: they are read and written to next shader
+
+- Types:
+ - int, ivec2, ivec3, ivec4
+ - float, vec2, vec3, vec4
+ - mat2, mat3, mat4
+ - bool, bvec2, bvec3, bvec4
+ - samplers to  access texture
+ - variables could be accessed in: [index], .rgba, .xyzw, or.stpq
+ - Supports vector operations (SIMD)
+ - Swizzled
+ - Discard
+ - const, attribute, uniform, in, out
+ - casting: int i = int(nonIntVarName)
+ - No stacks or recursions
+
+- Shaders turn off many built in variables
+
+- Fragment shaders:
+ - Color computation
+ - Texturing
+ - Handling of per fragment color
+ - color binding
+ - Discarding fragment
+
+Simpleset Vertex shader
+#version 330 compatibility
+void
+main( )
+{
+  gl_Position = gl_ModelViewProjectMatrix * gl_Vertex;
+}
+
+
+Simpleset Fragment shader:
+#version 330 compatibility
+void
+main( )
+{
+  gl_FragColor = vec4( .5, 1., 0., 1. );
+}
+___
+
+Draw stripes:
+- smoothstep() -> s curve sigmoid for transition
+- mix() -> q = (1,-t)q0 + tq1 (blend two values)
+- keying off is key
+
+Circular dot:
+- draw on paper and figure out what pattern is
+- decide what to key off of (x,y,z s,t <- based on assignment)
+- note s,t can suck based on model design

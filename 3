@@ -1,0 +1,70 @@
+float t = smoothstep(float edge0, float edge1, float x)
+- edge 0 : where smoothness starts
+- edge 1 : where smoothness ends
+- x: amount of smoothness
+- Tolerance: uTol = (edge 1 - edge 0)/2
+
+T out = mix(T value0, T value1, float t) // 0 <= t <= 1.0
+-> (1-t)*value0 + t*(value1)
+- a simple factor that smoothly goes from value 0 to value 1
+- t could be obtained from last section
+- T is any type (C++ OOP)
+
+smoothPulse
+- smoothstep1 - smoothstep2 + 1
+
+There are many ways to go from 0 to 1
+- y=sin((pi/2)*x)
+- y=x
+- y=sqrt(x)
+- y=sqbc(x)
+- y=3x^2-2x^2
+- y=sin^2((pi/2)*x)
+or
+- y=x^2
+- y=x^3
+- y=x^4
+- y=x^5
+
+- have shape change in world cordinate
+___
+
+How to do circles:
+- they are checker boards
+ - find out which checker we are in
+ - we can use s and t
+ - divide s and t by diameter we need the checkrs to be
+ - (numS + numT) % 2 -> this gives us a 1 or 0 alternating based on position
+
+- Code:
+ float R = Diam/2.;
+ int numins = int( s / Diam );
+ int numint = int( t / Diam );
+ s c = numins * Diam + R;
+ t c = numint * Diam + R;
+
+- Now we need to find the center of the circle:
+ - (s-sc)^2 + (t-tc)^2 <= (r)^2
+ - s: s cordinate
+ - sc: center of the s cordinate
+ - t: t cordinate
+ - tc: center of the t cordinate
+ - r: radious
+
+- Elipses:
+ - They hve 2 diameters
+ - center is obtained through
+  - 1-uTol <= ((s-sc)/A_r)^2 + ((t-tc)/B_r)^2 <= 1+uTol
+
+- code:
+ float Ar = Ad/2.;
+ numins = 2
+ float Br = Bd/2.;
+ numint = 1
+ int numins = int( s / Ad );
+ int numint = int( t / Bd );
+ u_c = numins *Ad + A_r ;
+ v_c = numint *Bd + B_r ;
+
+- Add noise:
+ - Project 2

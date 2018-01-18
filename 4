@@ -1,0 +1,69 @@
+- Use morph (mix or clamp) to turn your geometry to cube or sphere
+ - Look at the code provided in glman -> CowMorph
+
+- GLMan has a variable: Timer ( Uniform variable and it is float)
+ - Define it in the shader file
+ - GLMan sets the uniform variable
+
+- Textures
+ - Processed in Texture units (minimum of 16 for OpenGL, about 256 on average)
+ - Texture units are numbered
+ - Texture is handed to TU
+ - TU's ID is passed to shader
+
+- GLMan texture:
+ - Texture2D 6 worldtex.bmp
+ - TexUnit is a variable and pass 6:
+  - TexUnit 6
+
+- varying vec4 vColor
+ - go through the rastorizer for frag shader
+ - is deprecated
+ - use out and in instead
+
+- In fragment shader for texture:
+ - float sf = fract (s * Frequency + OffsetS)
+ - float tf = fract (t * Frequency + OffsetT)
+ - uniform sampler2D TexUnit
+ - vec3 newColor = texture2d(TexUnit, vec2(sf,tf) ).rgb; // you can also use texture
+ - newColor = mix (newColor, vColor.rgb, Blend); 
+ - gl_FragColor = vec4(vLightIntensity * newColor, 1.);
+
+- In vertex shader:
+ - out vec2 vST;
+ - vST = gl_MultiTexCoord0.st
+ - vLightIntesity = --;
+ - vColor = --;
+
+- Alpha value in frag still affects z buffer 
+___
+
+Noise!
+- Can be 1D, 2D or 3D
+- Is a function of input values
+- Ranges from -1 to +1 or from 0 to 1 (0 to 1 is openGL)
+- Might look random, but really isn't
+- Has continuity
+- Is repeatable, same input always yeld same outputs
+
+Positional Noise:
+- Get positions and interpolate
+- problem is not garaunteed t get + and - values
+
+Gradient noise:
+- or Perlin noise
+- it picks all noise positions as 0 but at crossings it picks a slope
+- or a gradient
+
+Cubic or Quintic (fifth order) curves etc ...
+- equations are at the slides: Noise.pptx
+
+Noise Octaves:
+- add multiple noise waves each one twice the frequency and half the amplitude 
+  of the previous one
+- could increase octaves dynamically to for finer grain and detail
+- could be done in 1D , 2D and 3D
+
+Use noise with discard function
+- for spooky ghost or ash or crosion effeccts
+
