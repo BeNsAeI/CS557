@@ -1,0 +1,54 @@
+Turbulence
+- Turbulance behaves like an abs value that turns all negatives to positives
+
+Noise general direction:
+- Have an equation that relates some input value (x,y,z or u,v) to output values (color, height)
+- Have actual input values of where we are right now
+- Add Noise to the actual input values to produce new “fake” input values
+- Use those new “fake” input values in the original equation
+
+Final project idea:
+ - Project Birth
+ - birth of a planet
+ - start with basics
+ - apply weather
+ - tell if life is sustainable
+
+Final project idea:
+ - add grass to the tank game
+ - add camo pattern to the tank game
+ - add cloudy patterns to smoke and dust and etc
+ - add flame and explosion pattern and coloring to explosion
+ - add shrapnel to explosion in shader
+ - Do lighting in shader
+ - do the outline and edge effect in a shader
+
+How to make noise:
+- N = NoiseMag * noise( NoiseFreq * currentCoordinate (could be s,t or x,y,z) );
+
+** A data set can be placed as a texture in order to access more memory
+
+for GLMan
+uniform Sampler3D Noise3;
+vec3 stp = uNoiseFreq * vMCposition;
+vec4 nv = texture(Noise3, stp);
+
+
+- four-octave noise function that ranges from 0. to 1, then do this
+ - float sum = nvr + nv.g + nv.b + nv.a;
+ - sum = (sum - 1.) / 2.;
+
+- four-octave noise function that ranges from -1 to 1, then do this instead:
+ - float sum = nvr + nv.g + nv.b + nv.a;
+ - sum = ( sum - 2. );
+
+___
+
+Project 2:
+- Project 1 + noise
+- uAd
+- uBd
+- uNoiseAmp
+- uNoiseFreq
+- uAlpha: Change the oppacity of the color, if uAlpha 0, discard instead
+- uTol

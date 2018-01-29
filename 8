@@ -1,0 +1,36 @@
+Lighting in shaders:
+
+N= Normal
+L = Light
+E = Eye vector
+R = Light Reflection vector
+ER = Eye Reflection Vector
+Color = LightColor * Material Color
+
+z = K * (Y0-y) * sin(2. PI *x/P))
+- Y0 : Top of curtain
+- P : perios
+
+Get normal:
+ - Cross product
+ - Dy/dx
+ - float dydx = K * (Y0-y) * (2. * PI/P) * cos(2. * PI* x/P)
+ - Slope = y = mx + b
+ - (dx,dz), 
+
+ - dz/dy:
+ - dzdy = -K * sin(2 PI*x/P)
+
+- Can't use gl_Normal cause it has no clue what vertex shader is doing to the model
+
+Bump Mapping:
+- Bump-Mapping is a lighting trick that fakes depth
+ - Silavet edge gives it away
+- use the normal from the actual model and feed it to a flat version
+- use memory to save computatuion
+
+How to generate the bump map:
+ - start with the grid of height
+ - You cannot use uniform variables
+ - you can put it in a texture (use rgb to carry data)
+ - 

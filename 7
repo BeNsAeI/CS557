@@ -1,0 +1,19 @@
+Cube textures:
+- All 6 images load into same texture data structure
+- Takes in a vec3: s,t and p (it actually is a vec4, called cube)
+- s,t,p forms a unit vector
+- largest magnitude determines which wall it will hit
+- the second and third largest are used to calculate where on that wall it hits
+
+GLSL Reflect:
+- out vec3 vReflectVector
+- vec3 eyeDir = ECposition - vec3(0,0,0); //<- eye
+- vec3 normal = normalize(uNormalMatrix * aNormal);
+- vReflectVector = reflect(eyeDir, normal);
+
+- vec4 newcolor = textureCube(u ReflectUnit,vReflectVector)
+
+Raytracing's advantages:
+- inter-reflections is supported by raytracing but not shader refllect
+- Spatial Relationships (reflection allows you to see things that are not in FOV)
+- it goes through the back surface
