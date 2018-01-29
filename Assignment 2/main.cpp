@@ -391,24 +391,24 @@ Display( )
 	}
 
 
-	// since we are using glScalef( ), be sure normals get unitized:
+	// since we are using glScalef( ), be sure normals get unitized
 
 	glEnable( GL_NORMALIZE );
 
 	// call GLSL Object (GLSLOBJ)
 	Pattern->Use();
-	Pattern->SetUniformVariable((char *)"uTime",(float)(Time));
-	Pattern->SetUniformVariable((char *)"uAd",(float)(0.1));
-	Pattern->SetUniformVariable((char *)"uBd",(float)(0.2));
-	Pattern->SetUniformVariable((char *)"uP",(float)(0.25));
-	Pattern->SetUniformVariable((char *)"uA",(float)(1));
-	Pattern->SetUniformVariable((char *)"uTol",(float)(0.5));
-	Pattern->SetUniformVariable((char *)"uDist",(float)(dist));
-	Pattern->SetUniformVariable((char *)"uPat",(float)(pat));
+	Pattern->SetUniformVariable((char *)"uAd",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uBd",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uTol",(float)(0.));
 	Pattern->SetUniformVariable((char *)"uKa",(float)0.25);
 	Pattern->SetUniformVariable((char *)"uKd",(float).5);
 	Pattern->SetUniformVariable((char *)"uKs",(float).25);
-	Pattern->SetUniformVariable((char *)"uShininess",(float)1);
+	Pattern->SetUniformVariable((char *)"uNoiseAmp",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uNoiseFreq",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uAlpha",(float)(1));
+	Pattern->SetUniformVariable((char *)"uChromaRed",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uChromaBlue",(float)(0.25));
+	Pattern->SetUniformVariable((char *)"uUseChromaDepth",(bool)(false));
 	Pattern->SetUniformVariable((char *)"uS0",1);
 	Pattern->SetUniformVariable((char *)"uT0",1);
 	Pattern->SetUniformVariable((char *)"uSize",(float)1);
