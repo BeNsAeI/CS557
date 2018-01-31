@@ -1,0 +1,46 @@
+Terrain.vert:
+
+#version 330 compatibility
+out vec3 vMCposition;
+out vec3 vECposition;
+out vec2 vST;
+void
+main( )
+{
+	vST = gl_MultiTexCoord0.st;
+	vMCposition = gl_Vertex .xyz;
+	vECposition = ( gl_ModelViewMatrix * gl_Vertex ).xyz;
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}
+
+terrain.frag
+
+#version 330 compatibility
+uniform float uLightX, uLightY, uLightZ;
+uniform float uExag;
+uniform vec4 uColor;
+uniform sampler2D uHgtUnit;
+uniform bool uUseColor;
+uniform float uLevel1;
+uniform float uLevel2;
+uniform float uTol;
+uniform float uDelta;
+in vec2 vMCposition;
+in vec3 vECposition;
+in vec2 vST;
+const float DELTA = 0.001;
+const vec3 BLUE = vec3( 0.0, 0.8, 0.0 );
+const vec3 GREEN = vec3( 0.6, 0.3, 0.1 );
+const vec3 BROWN =vec3( 1.0, 1.0, 1.0 );
+const vec3 WHITE = vec3( 0.1, 0.1, 0.5 );
+const float LNGMIN = -579240./2.;
+const float LNGMAX = 579240./2.;
+const float LATMIN = -419949./2.;
+const float LATMAX = 419949./2.;
+
+void main()
+{
+	//look at slides bumpmapping, slide 7
+}
+
+* Normal is onlything needed for lighting
