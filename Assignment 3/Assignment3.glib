@@ -1,0 +1,24 @@
+##OpenGL GLIB
+
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+Vertex   Assignment3.vert
+Fragment Assignment3.frag
+Program Assignment1   					\
+		uK <-0.5 0.05 0.5>				\
+		uP <-10 0.5 10>					\
+		uY <-10 1 10>					\
+		uKa <0. .5 1.>					\
+		uKd <0. .5 1.>					\
+		uKs <0. .125 1.>				\
+		uShininess <0 1 10>				\
+		uNoiseAmp <0. 0.75 1.>			\
+		uNoiseFreq <0 0.05 10>			\
+		uLightX <-20. 5. 20.>			\
+		uLightY <-20. 10. 20.>			\
+		uLightZ <-20. 20. 20.>			\
+		uColor {1. .7 0. 1.}			\
+		uSpecularColor {1. 1. 1. 1.}	
+
+QuadXY  -0.2  1.  200  200
