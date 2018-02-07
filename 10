@@ -1,0 +1,30 @@
+test is short answer
+- Hmogeneus coordinates what means what are the y good for
+ - x,y,z,w -> weight is for giving a multiplier for depth (x,y,z get divided by w)
+ - in perspective it is used for depth
+ - That is why it is a vec4
+ - GL asserts it woun't be 0
+
+- Model coordinate, eye/world coordinate, Screen
+
+- Shader patterns:
+ - Deciding what to key off of
+ - Stripes: Keying off of x vs keying off of s
+ - Stripes: Keying off of a quantity in Model Coordinatees vs. World/Eye Coordinate
+
+- Noise
+ - Cohearency and repeatability, why it can't be really random?
+  - frame to frame changes
+ - Position, Gradient, why we use gradient
+ - Amplitude and frequency
+ - Octave
+ - "Turbulence"
+ - How to use noise and why
+ - GLMan's Noise baked into a look-up texture
+
+- Fun with one: different ways to maniipulate the path from 0 to 1 
+ - all equations for blending from one color to another in the pattern
+
+- Goals of GLSL 1: speed, 2: quality
+ - where does the compiler for graphics card sits -> driver
+
