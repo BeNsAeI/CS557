@@ -1,0 +1,26 @@
+Embossing filter
+- looks like a paper punch
+
+Edge detection:
+- look for a rapid change in color or contrast
+- Sobel filter
+
+-     -1 -2 -1
+- H =  0  0  0
+-      1  2  1
+
+-     -1  0  1
+- v = -2  0  2
+      -1  0  1
+
+- S = sqrt(H^2+V^2)
+- theta = atan2(|V|,|H|)
+- this will give us large changes where edges are
+
+Toon shading
+- quantize color
+- edge detect
+
+Multi-pass rendering
+- store into a texture instead of frame buffer
+- 
