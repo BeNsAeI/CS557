@@ -1,0 +1,7 @@
+Compute shader
+- This shader is not part of the graphic pipeline
+- GLSL compute shader looks a lot like OpenCL
+- Compute shader gets access to VBOs but they are read only
+- Compute shader gets something called Shader Storage Buffer Object
+- struct pos{}; -> layout(std140, bind=4) buffer Pos
+- 

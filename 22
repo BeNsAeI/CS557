@@ -1,0 +1,39 @@
+OpenGL ES:
+- in -> attribute
+- out -> varying
+
+* id = vertex-shader
+* Colors only can be changed from shaders
+* uProjectionMatrix
+* uModelViewMatrix
+* </script>
+
+* <script id= "fragment-shader" type "x-shader/x-fragment">
+* precision highhp float;
+* uniform sampler2d uTexture
+* void main
+* </script>
+
+** link the scripts
+- http://code.jquery.com/jquery-1.8.3.js
+- http:// .. ui/
+
+** Sliders:
+$("#slider").slider();
+
+<canvas id = "gl-canvas" width"" height "">
+do not support
+</canvas>
+
+* link sample.js code
+* initShader.js
+gl.compileShader
+gl.createProgram
+gl.attachShader
+
+* see ~mjb/webgl
+* look for glm equivalent of js
+
+* windows.onload -> init graphic
+
+** look at the js file

@@ -1,0 +1,22 @@
+geometry shaders
+
+- change geometry
+- change topology
+
+- Triangle parametrisation:
+- vec3 v = V0 + s*V01 + t*V02
+
+- Tessilation shader can reduce geometry
+- For increasing performance
+
+- Silh:
+- look at the three sorrounding triangles
+- if the normals are pointing to different directions on depth component (eye or reverse)
+- it draws the line
+
+
+Tessilation shader - Tessilation shader does what geommetry shader does but 
+it has built in patterns
+  to do it
+- you can modify it based on where they are with regards to the model
+- 

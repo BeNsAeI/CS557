@@ -1,0 +1,41 @@
+Volkan:
+- Derived from AMD's Mantle API
+- Influenced by apples Metal API
+- Less driver complexity and overhead
+- Less user hand holding
+- Higher single thread performance
+- Multi-threaded graphics
+- Handle tiled rendering
+
+- Syncronization is programmers job not Volkan
+- Events can be set, polled, and waited for
+- Vulkan does not ever lock (programmers job)
+- Threads can concurently read from the same object
+- Threads can concurently write to different objects
+
+in OpenGL:
+- changing states are expensive
+- changing colors are expensive
+- uniform variables are expensive
+
+* Shaders in Volkan follows GLSL specifications
+- #define VULKAN 100
+- Pre-Compiler compiles with external compiler
+- Group uniform variables
+- ...
+
+GLSL Src -> Extern GLSL Compiler -> SPIR-V -> Compiler Driver -> Vendor-Specific-binary
+
+___
+
+WebGL: OpenGL-ES 2.0
+- No fixed-function pipeling
+- no glBegin glEnd
+- No more builtin transformation functions
+- Attributes are defined by attribute and not in
+- in/out switched to varying
+- Fragment shader must set percision 32 vs 64: percision highp float;
+Sample: ~mjb/webgl
+
+___
+

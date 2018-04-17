@@ -1,0 +1,93 @@
+<html>
+
+<head>
+<title>Sample WebGL 3D Program</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+uniform mat4	uModelViewMatrix;
+uniform mat4	uProjectionMatrix;
+attribute vec3	aVertex;
+attribute vec3	aColor;
+attribute vec2	aTexCoord0;
+varying vec3	vColor;
+varying vec2	vST;
+varying float	vZ;
+
+void
+main( )
+{
+	vColor = aColor;
+	vST    = aTexCoord0;
+	vZ     = aVertex.z;
+	gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertex,1.);
+}
+</script>
+
+
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+#ifdef GL_ES
+precision highp float;
+#endif
+
+uniform sampler2D	uTexture;
+varying vec3	vColor;
+varying vec2	vST;
+varying float	vZ;
+
+void
+main( )
+{
+	if( vZ <= 0.99 )
+	{
+		gl_FragColor = vec4( vColor, 1. );
+	}
+	else
+	{
+		vec4 rgba = texture2D( uTexture, vST );
+		gl_FragColor = vec4( rgba.rgb, 1. );
+	}
+}
+</script>
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+<style>#slider { margin: 10px; }  </style>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+
+</head>
+
+<body>
+
+<button id = "PerspButton">Perspective</button>
+<button id = "OrthoButton">Orthographic</button> 
+<p></p>
+
+<div id="slider">
+<script>
+$( "#slider" ).slider( );
+$( "#slider" ).slider( "option", "min",   0.1  );
+$( "#slider" ).slider( "option", "max",   2.0  );
+$( "#slider" ).slider( "option", "value", 1.0  );
+$( "#slider" ).slider( "option", "step",  0.01 );
+$( "#slider" ).slider( "option", "orientation", "horizontal" );
+$( "#slider" ).slider( "enable" );
+</script>
+</div>
+
+<canvas id="gl-canvas" width="512"" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<script type="text/javascript" src="Webgl-Utils.js"></script>
+<script type="text/javascript" src="InitShaders.js"></script>
+<script type="text/javascript" src="GlMatrix.js"></script>
+<script type="text/javascript" src="sampledata.js"></script>
+<script type="text/javascript" src="sample.js"></script>
+
+</body>
+</html>

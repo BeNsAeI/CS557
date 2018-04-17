@@ -1,0 +1,22 @@
+in vec4 gl_Position[3]
+in vec4 vColor[3]
+out vec4 gl_Position
+out vec4 gColor
+gColor = vColor[k]
+
+in vec4 gColor //fragment shaders
+
+things need to be passed down the pipeline:
+vert(assign) -> geom (reassign) -> frag
+
+Geometry shaders:
+- create new geometry
+- change topology
+
+- layout: information on how data is stored
+ - triangle_strip
+ - truangle
+- slider -> uniform variables slided in
+- gl_position -> xyzw
+- EmitVertex()
+- 

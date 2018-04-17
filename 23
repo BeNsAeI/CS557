@@ -1,0 +1,65 @@
+- Test #2 
+- Multiple choice
+- 40 questions  2.5 points each
+- 5 repeat questions
+- pring a number 2 pencil
+- handouts
+- class
+- projects
+- sample shaders for GLMan
+- Topics:
+ - Image manipulation
+ - un-masks
+ - differencing
+ - chromokey
+ - embossing
+ - toon rendering
+ - Chaotic images -> fractel shape thingies
+ - render to texture (multipass)
+ - Physics of rainbow
+ - physics of refraction
+ - Oil slicks
+ - Lenses
+ - Cube mapping
+ - Geometry shaders -> how sample shaders work
+ - Tesselation _> know how shaders work
+ - Built in patterns
+ - The GLSL API
+ - Visualization in shaders
+ - Compute shaders -> sample shaders for compute shader
+ - Compute shaders are not part of the graphic pipeline at all
+ - Compute shaders the use all memory buffers
+ - Global ID, Work group, work item, data parallel
+ - Shader storage buffer object
+ - Vulkan
+ - WebGL
+ - More information
+  - General Computer Graphics
+   - SIGGRAPH Online Bibliography database
+   - Ed Angel and Dave Shreiner, interactive computer graphics
+   - Andrew Glassner, Graphics Gems, Academic press 1990 (there are 5)
+   - Graham Sellers Vulkan Programming guide
+  - Math and geometry related books
+  - Scientific visualization related books
+  - Shaders MJB has his own book here
+   - Steve Upstill, The Render Man Companion
+  - Gaming related books
+   - Jesse Schell, The art of game design
+  - Color and perception
+   - Edward Tufte -> data visualizations
+  - VR
+  - Sterio Graphics
+  - Software engineering
+  - Paraller
+  - Periodicals
+   - Computer Graphics World: published by Pennwell CGW
+   - Computer Graphics and Applications: Published by IEEE
+   - Transaction on Visualization -> math heavy
+  - Professional Orgonizations
+   - SIGGRAPH ACM Special Interest Group on Computer Graphics
+   - SIGCHI
+   - SIGHCP -> High performance
+   - OpenMPCon
+   - PAX
+   - GDC: Game developer confrence
+ - Project 4,5,6

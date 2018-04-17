@@ -1,0 +1,71 @@
+Work groups -> 4 work items -> cuda cores
+- 20 of them
+- setup time is more than the 20 proesses
+
+WorkGroups = Global Invocation Size / Work Group Size
+- it is adviced to have 32/ 96 work items
+
+2D problem:
+- 5*4 work group
+- 4*3 work items
+- 5*4 = 20*12 / 4*3
+
+3D:
+- g1 * g2 * g3
+- w1 * w2 * w3
+- g1 * g2 * g3 = g1 * g2 * g3 * w1 * w2 * w3 / w1 * w2 * w3
+
+glUseProgram(Name here); // or Pattern->Use();
+void glDispatchCompute (g1 * g2 * g3); // workgrou -> Num_Particles/work groups size
+glMemoryBarrier(GL_SHADER_STORAGE_BARRIER_BIT)
+
+- Barrier calls in the compute shaders as well
+
+Built in variables:
+- uvec3: unsigned int
+- uint: unsigned int
+
+- gl_NumWorkGroups
+- gl_WorkGroupSize
+- gl_WorkGRoupID
+- gl_LocalInvocationID
+- gl_GlobalInvocationID
+- gl_LocalInvocationIndex
+
+- declare array of structures:
+
+- struct pos{}; -> layout(std140, bind=4) buffer Pos
+ - instead of struct declaration do layout
+ - use buffer instead of struct for creating an instance
+
+- layout (local_size_x 128, local_size_y 128, local_size_z 128) in;
+ - set the dimentions of your problem
+
+- uint gid = gl_GlobalInvocationID.x/y/z;
+- vecc3 p = Position [gid].xyz;
+- vec3 v = Velocity[gid].xyz;
+- do math
+- Position [gid].xyz = p;
+- Velocity[gid].xyz  = v;
+
+const vec4 SPHERE = vec4(-100,-800,0,600)
+Bounce(vec3 vin, vec3 n)
+{
+	vec3 vout reflect(vin,n)
+	return vout
+}
+vec3 BounceSphere()
+{
+	n = normalize()
+	bounce
+}
+
+bool IsInsideSphere()
+{
+}
+___
+
+- Cuda cores support integers too I/F 32 bit, single percision, 64 double percision
+___
+
+

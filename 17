@@ -1,0 +1,8 @@
+Tesselation:
+- Inputs are same as the vertex shader and the most important one is gl_Position
+- Outputs are parameters for primitive generator
+- there is a layout for number of outputs:
+ - layout (vertecies = 16) out; // number of vertecies to be handled
+ - layout (pattern Generator Name, spacing parameter) out;
+ - invocation id: which vertex is being affected
+ - 

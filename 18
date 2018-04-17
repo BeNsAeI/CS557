@@ -1,0 +1,24 @@
+Scientific visualization
+- In mulatipass rendering:
+ - Negation will help with details showing up
+ - embossing emphesises depth and details
+ - Sharpenning will help spiking details
+ - Edge detection will reduce data to emphesize edges
+ - for arcitectural designs, toon shading is good
+
+- Multi-data rendering
+ - Sattlite data (up to 20 channels)
+ - mix visible light, heat and water vapor
+
+- Hyperbolic geometries
+ - We will keep the contex
+
+- Point cloud data
+ - 3D textures
+ - textures meant to be big, it gives us free interpolation
+ - Jitter: taking each value and move it a small amount so they won't line up
+ - discard uninteresting data
+ - slice data set
+
+*if(any (lessThan(vec3,vec3)))
+*if(all (greaterThan(vec3,vec3)))
